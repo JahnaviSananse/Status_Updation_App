@@ -1,3 +1,4 @@
+<%= render 'dashboard'%>
 <div class="container">
   <h1 class="text-center mt-5"> Status Information</h1>
   <div class="form-group row">
@@ -21,18 +22,18 @@
             <%= render "task_fields", :f => t %>
           <% end %>
 
-          <div class="ml-3 row justify-content-between mt-4">
-            <%= link_to_add_association "Add Task", f, :tasks ,class: "btn btn-outline-dark  my-1  ml-3 col-2" %>
-            <button type="button" class="btn btn-outline-dark col-2 my-1 " data-toggle="modal" data-target="#exampleModal">
+          <div class="ml-3 row justify-content-between mt-5">
+            <%= link_to_add_association "Add Task", f, :tasks ,class: "btn btn-secondary text-light my-1  ml-3 col-2" %>
+            <button type="button" class="btn btn-secondary col-2 my-1 text-light " data-toggle="modal" data-target="#exampleModal">
               Preview Mail
             </button>
-            <%= link_to 'Status History',statuses_path(@status), class: "btn btn-outline-dark my-1 col-2 mr-5" %>
+            <%= link_to 'Status History',statuses_path(@status), class: "btn btn-secondary text-light my-1 col-2 mr-5" %>
           </div>
         </div>
 
         <div class="row justify-content-center d-flex mt-5">
           <%# <%= f.submit %>
-          <button type="submit" class="btn btn-outline-info btn-lg col-5 mb-5" data-toggle="modal" data-target="#exampleModal">
+          <button type="submit" class="btn btn-primary btn-lg col-4 mb-5" data-toggle="modal" data-target="#exampleModal">
             Create User
           </button>    </div>
       </div>
