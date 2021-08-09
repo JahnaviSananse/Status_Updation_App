@@ -1,0 +1,77 @@
+<div class="container">
+  <h1 class="text-center mt-5"> Status Information</h1>
+  <div class="form-group row">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <h5 class="text-center mt-2 mb-1"> New Update</h5>
+    </div>
+  </div>
+  <%= form_for(@status) do |f| %>
+    <div class="container">
+      <br>
+      <br>
+      <div>
+        <div>
+          <%= f.label :date %>
+          <%= f.date_field :date %>
+        </div>
+
+        <div>
+          <%= f.fields_for :tasks do |t| %>
+            <%= render "task_fields", :f => t %>
+          <% end %>
+
+          <div class="ml-3 row justify-content-between mt-4">
+            <%= link_to_add_association "Add Task", f, :tasks ,class: "btn btn-outline-dark  my-1  ml-3 col-2" %>
+            <button type="button" class="btn btn-outline-dark col-2 my-1 " data-toggle="modal" data-target="#exampleModal">
+              Preview Mail
+            </button>
+            <%= link_to 'Status History',statuses_path(@status), class: "btn btn-outline-dark my-1 col-2 mr-5" %>
+          </div>
+        </div>
+
+        <div class="row justify-content-center d-flex mt-5">
+          <%# <%= f.submit %>
+          <button type="submit" class="btn btn-outline-info btn-lg col-5 mb-5" data-toggle="modal" data-target="#exampleModal">
+            Create User
+          </button>    </div>
+      </div>
+    </div>
+  <% end %>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Training Status </h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <p>Hi Nishant sir, <br>
+            <p class="ml-5">Please find the status for Today.</p>
+            <p>
+              <table style="width:70%" class="table table-light table-hover center ml-5">
+                <tr class="table-dark text-center">
+                  <th>Tasks</th>
+                  <th>PR Links</th>
+                  <th>Hours</th>
+                </tr>
+                <% @status.tasks.each do |task| %>
+                  <tr class="text-center">
+                    <td><%= task.name %></td>
+                    <td><%= task.pr %></td>
+                    <td><%= task.hours %></td>
+                  <% end %>
+                </tr>
+              </table>
+            </p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Alright!</button>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,23 @@
+<div class="text-center mt-5">
+  <h4><%= @status.date %>'s Task</h4>
+</div>
+
+<div class="container">
+  <div class="form-group shadow pt-3 pl-3 pb-3 pr-3 bg-light rounded flex-column d-flex" >
+    <table border=1>
+      <tr>
+        <th> Task Name </th>
+        <th> PR Link </th>
+        <th> Hrs Spent </th>
+      </tr>
+      <% @tasks.each do |task| %>
+        <tr>
+          <td> <%= task.name %> </td>
+          <td> <%= task.pr %> </td>
+          <td> <%= task.hours %> </td>
+        </tr>
+      <% end %>
+
+    </table>
+  </div>
+</div>

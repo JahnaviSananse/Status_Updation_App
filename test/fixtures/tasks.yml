@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  pr: MyString
+  hours: 1.5
+  status: one
+
+two:
+  name: MyString
+  pr: MyString
+  hours: 1.5
+  status: two
