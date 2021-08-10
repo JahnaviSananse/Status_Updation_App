@@ -7,6 +7,8 @@
       <h5 class="text-center mt-2 mb-1"> New Update</h5>
     </div>
   </div>
+  <%= render 'shared/errors', obj: @status %>
+
   <%= form_for(@status) do |f| %>
     <div class="container">
       <br>
@@ -38,6 +40,7 @@
           </button>    </div>
       </div>
     </div>
+
   <% end %>
 
   <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -60,13 +63,7 @@
                   <th>PR Links</th>
                   <th>Hours</th>
                 </tr>
-                <% @status.tasks.each do |task| %>
-                  <tr class="text-center">
-                    <td><%= task.name %></td>
-                    <td><%= task.pr %></td>
-                    <td><%= task.hours %></td>
-                  <% end %>
-                </tr>
+
               </table>
             </p>
           </div>

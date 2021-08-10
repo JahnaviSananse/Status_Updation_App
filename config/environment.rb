@@ -6,3 +6,5 @@ load(status_env) if File.exist?(status_env)
 
 # Initialize the Rails application.
 Rails.application.initialize!
+
+require 'will_paginate'

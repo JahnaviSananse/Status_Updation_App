@@ -10,22 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_210_809_065_905) do
-  create_table 'statuses', force: :cascade do |t|
-    t.date 'date'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
+ActiveRecord::Schema.define(version: 2021_08_09_065905) do
+
+  create_table "statuses", force: :cascade do |t|
+    t.date "date"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table 'tasks', force: :cascade do |t|
-    t.string 'name'
-    t.string 'pr'
-    t.float 'hours'
-    t.integer 'status_id', null: false
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['status_id'], name: 'index_tasks_on_status_id'
+  create_table "tasks", force: :cascade do |t|
+    t.string "name"
+    t.string "pr"
+    t.float "hours"
+    t.integer "status_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["status_id"], name: "index_tasks_on_status_id"
   end
 
-  add_foreign_key 'tasks', 'statuses'
+  add_foreign_key "tasks", "statuses"
 end
