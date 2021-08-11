@@ -3,47 +3,41 @@
 // a relevant structure within app/javascript and only use these pack files to reference
 // that code so it'll be compiled.
 
-import Rails from "@rails/ujs"
-import Turbolinks from "turbolinks"
-import * as ActiveStorage from "@rails/activestorage"
-import "channels"
-import "bootstrap"
-import './src/application.scss'
+import Rails from "@rails/ujs";
+import Turbolinks from "turbolinks";
+import * as ActiveStorage from "@rails/activestorage";
+import "channels";
+import "bootstrap";
+import "./src/application.scss";
 import "cocoon";
 
-Rails.start()
-Turbolinks.start()
-ActiveStorage.start()
+Rails.start();
+Turbolinks.start();
+ActiveStorage.start();
 
-require('jquery')
-
+require("jquery");
 
 $(document).ready(function () {
-  var trigger = $('.hamburger'),
-      overlay = $('.overlay'),
-     isClosed = false;
+  // var task_name=$('#task_name').attr('value');
+  // console.log("task_name",task_name);
 
-    trigger.click(function () {
-      hamburger_cross();      
-    });
+  $("#task_name").on("change", function () {
+    let a = $(this).val();
+    $("#text_name").val(a);
+  });
 
-    function hamburger_cross() {
+  $("#pr_link").on("change", function () {
+    let a = $(this).val();
+    $("#text_pr").val(a);
+  });
 
-      if (isClosed == true) {          
-        overlay.hide();
-        trigger.removeClass('is-open');
-        trigger.addClass('is-closed');
-        isClosed = false;
-      } else {   
-        overlay.show();
-        trigger.removeClass('is-closed');
-        trigger.addClass('is-open');
-        isClosed = true;
-      }
-  }
-  
-  $('[data-toggle="offcanvas"]').click(function () {
-        $('#wrapper').toggleClass('toggled');
-  });  
+  $("#time").on("change", function () {
+    let a = $(this).val();
+    $("#text_hours").val(a);
+  });
+
+  $("#menu-toggle").click(function (e) {
+    e.preventDefault();
+    $("#wrapper").toggleClass("toggled");
+  });
 });
-

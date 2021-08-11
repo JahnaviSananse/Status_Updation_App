@@ -1,4 +1,3 @@
-<%# <%= render 'dashboard'%>
 <div class="container">
   <h1 class="text-center mt-5"> Status Information</h1>
   <div class="form-group row">
@@ -16,7 +15,7 @@
       <div>
         <div>
           <%= f.label :date %>
-          <%= f.date_field :date %>
+          <%= f.date_field :date, min:"2014-05-11", max:"#{Date.today.to_s}" %>
         </div>
 
         <div>
@@ -57,19 +56,25 @@
           <p>Hi Nishant sir, <br>
             <p class="ml-5">Please find the status for Today.</p>
             <p>
-              <table style="width:70%" class="table table-light table-hover center ml-5">
+
+              <table border='1'>
                 <tr class="table-dark text-center">
                   <th>Tasks</th>
                   <th>PR Links</th>
                   <th>Hours</th>
                 </tr>
-
+                <% @status.tasks.each do |task| %>
+                  <tr class="text-center">
+                    <td><input type="text" class="form-control" id="text_name" disabled></td>
+                    <td><input type="text" class="form-control" id="text_pr" disabled></td>
+                    <td><input type="text" class="form-control" id="text_hours" disabled></td>
+                  <% end %>
+                </p>
               </table>
-            </p>
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">Alright!</button>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Alright!</button>
+            </div>
           </div>
         </div>
       </div>
-    </div>

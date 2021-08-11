@@ -1,4 +1,3 @@
-<%# <%= render 'dashboard'%>
 <h2 class="text-center mb-5 "> Status History </h2>
 
 <% @statuses.each do |status| %>
@@ -17,11 +16,10 @@
         <% status.tasks.each do |task| %>
           <tr>
             <td> <%= task.name %> </td>
-            <td> <%= task.pr %> </td>
+            <td> <%= link_to "GITHUB PR LINK", task.pr, target: '_blank' %> </td>
             <td> <%= task.hours %> </td>
           </tr>
         <% end %>
-
       </table>
 
     </div>

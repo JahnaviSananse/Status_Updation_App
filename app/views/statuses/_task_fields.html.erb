@@ -5,7 +5,7 @@
 
         <%= f.label "TASK NAME",class: "col-2 col-form-label text-dark" %>
         <div class="col-9">
-          <%= f.text_field :name, class: "form-control shadow rounded" %>
+          <%= f.text_field :name, class: "form-control shadow rounded", id: "task_name" %>
         </div>
       </div>
 
@@ -13,7 +13,7 @@
 
         <%= f.label "PR lINK",class: "col-2 col-form-label text-dark" %>
         <div class="col-9">
-          <%= f.url_field :pr, class: "form-control shadow rounded" %>
+          <%= f.url_field :pr, class: "form-control shadow rounded", id: "pr_link" %>
         </div>
       </div>
 
@@ -22,7 +22,7 @@
         <%= f.label "HOUR",class: "col-2 col-form-label text-dark" %>
 
         <div class="col-2">
-          <%= f.number_field :hours,step:"1", class: "form-control shadow rounded"%>
+          <%= f.number_field :hours,step:"0.5",min:"0.5", class: "form-control shadow rounded", id: "time" %>
         </div>
         <div class="col-6">
         </div>
