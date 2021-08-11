@@ -1,0 +1,24 @@
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <p>Hi Nishant sir, Please find the status for Today.</p>
+    <p>
+    <table style="width:70%" class="table table-light table-hover center">
+    <tr class="table-dark text-center">
+      <th>Tasks</th>
+      <th>PR Links</th>
+      <th>Hours</th>
+    </tr>
+    <% @status.tasks.each do |task| %>
+    <tr class="text-center">
+      <td><%= task.name %></td>
+      <td><%= task.pr %></td>
+      <td><%= task.hours %></td>
+    <% end %>
+    </tr>
+    </table>
+    </p>
+  </body>
+</html>

@@ -1,0 +1,33 @@
+<div class="text-center mt-5">
+  <h2><%= @status.date %>'s Task</h2>
+</div>
+
+<div class="container mt-5">
+  <div class="form-group shadow pt-3 pl-3 pb-3 pr-3 bg-light rounded flex-column d-flex" >
+    <table border=1>
+      <tr>
+        <th> Task Name </th>
+        <th> PR Link </th>
+        <th> Hrs Spent </th>
+      </tr>
+      <% @tasks.each do |task| %>
+
+        <tr>
+          <td> <%= task.name %> </td>
+          <td>  <%= link_to "GITHUB PR LINK", task.pr, target: '_blank' %> </td>
+          <td> <%= task.hours %> </td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<div class="text-center mt-5">
+  <h5>
+    [ Kindly Note : You have Spent <%= pluralize(@status.total_hours_count, "hour") %> behind <%= @tasks.distinct.count('name')%> task on <%= @status.date %> ]
+  </h5>
+</div>
+
+<div class="text-center mt-5">
+  <h2><%= link_to '[ Back to Dashboard ]',root_path, class:"btn btn-outline-secondary btn-md ms-2 mb-3" %></h2>
+</div>
